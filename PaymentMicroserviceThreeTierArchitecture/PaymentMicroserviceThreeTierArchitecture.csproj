@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\PaymentMicroserviceThreeTierArchitecture-BAL\PaymentMicroserviceThreeTierArchitecture-BAL.csproj" />
+    <ProjectReference Include="..\PaymentMicroserviceThreeTierArchitecture-BAL\PaymentMicroserviceThreeTierArchitecture-BAL.csproj" />
   </ItemGroup>
 
 </Project>
