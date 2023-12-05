@@ -1,22 +1,27 @@
 pipeline {
     agent any
-     tools { 
-       
-        
-    }    
+
+    tools {}  // No specific tools are required for this example
+
     stages {
-        
-       
         stage('Build') {
             steps {
-                 sh 'docker build --no-cache -t payment/api -f PaymentMicroserviceThreeTierArchitecture/Dockerfile .'
-
+                script {
+                    // Build Docker image
+                    sh 'docker build --no-cache -t payment/api -f PaymentMicroserviceThreeTierArchitecture/Dockerfile .'
+                }
             }
         }
+
         stage('Push and Deploy') {
-            steps {                
-                sh 'docker stop supreme_venkat || true && docker rm supreme_venkat || true'
-                sh 'docker run -d --name supreme_venkat -p 5001:80 --env "ASPNETCORE_ENVIRONMENT=Development" payment/api:latest'
+            steps {
+                script {
+                    // Stop and remove existing container (if any)
+                    sh 'docker stop supreme_venkat || true && docker rm supreme_venkat || true'
+
+                    // Run a new container with the built image
+                    sh 'docker run -d --name supreme_venkat -p 5001:80 --env "ASPNETCORE_ENVIRONMENT=Development" payment/api:latest'
+                }
             }
         }
     }
