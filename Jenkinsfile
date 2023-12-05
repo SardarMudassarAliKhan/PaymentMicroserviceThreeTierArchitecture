@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    tools {}  // No specific tools are required for this example
+   
 
     stages {
         stage('Build') {
