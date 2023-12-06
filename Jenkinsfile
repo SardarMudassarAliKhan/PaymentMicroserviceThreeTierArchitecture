@@ -20,7 +20,7 @@ pipeline {
                     sh 'docker stop supreme_venkat || true && docker rm supreme_venkat || true'
 
                     // Run a new container with the built image
-                    sh 'docker run -d --name supreme_venkat -p 5001:80 --env "ASPNETCORE_ENVIRONMENT=Development" payment/api:latest'
+                    sh 'docker run -d --name supreme_venkat -p 5002:80 --env "ASPNETCORE_ENVIRONMENT=Development" payment/api:latest'
                 }
             }
         }
