@@ -89,5 +89,19 @@ namespace PaymentMicroserviceThreeTierArchitecture.Controllers
             }
         }
 
+        [HttpDelete(nameof(DeletePaymentItemById))]
+        public IActionResult DeletePaymentItemById(Payment student)
+        {
+            if(student != null)
+            {
+                _customService.Delete(student);
+                return Ok("Deleted Successfully");
+            }
+            else
+            {
+                return BadRequest("Something went wrong");
+            }
+        }
+
     }
 }
